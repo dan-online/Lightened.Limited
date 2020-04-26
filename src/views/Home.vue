@@ -35,7 +35,7 @@
     <div
       :style="
         'transition:0.5s; transition-delay:0.5s; opacity:' +
-          (loading ? '1' : '0')
+          (loading ? '1' : '0;height:0px')
       "
     >
       <div class="stretched">

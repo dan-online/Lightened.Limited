@@ -3,7 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-import { LayoutPlugin } from "bootstrap-vue";
+import { LayoutPlugin, NavbarPlugin } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import VueParticles from "vue-particles";
