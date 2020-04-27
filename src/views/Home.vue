@@ -1,78 +1,97 @@
 <template>
   <div>
-    <div
+    <vue-particles
+      color="#71dea2"
+      :particleOpacity="1"
+      :particlesNumber="80"
+      shapeType="circle"
+      :particleSize="3"
+      :linesWidth="1"
+      :lineLinked="false"
+      :lineOpacity="0"
+      :moveSpeed="1"
+      :hoverEffect="false"
+      :clickEffect="false"
       :style="
-        'transition:0.5s; transition-delay:0.5s; opacity:' +
-          (!loading ? '1' : '0')
+        'transition: 0.5s; transition-delay: 0.5s; opacity: ' +
+          (loading ? 0 : 1)
       "
     >
-      <vue-particles
-        color="#71dea2"
-        :particleOpacity="1"
-        :particlesNumber="80"
-        shapeType="circle"
-        :particleSize="3"
-        :linesWidth="1"
-        :lineLinked="false"
-        :lineOpacity="0"
-        :moveSpeed="1"
-        :hoverEffect="false"
-        :clickEffect="false"
-      >
-      </vue-particles>
-      <b-container class="fixed">
+    </vue-particles>
+    <div class="fixed">
+      <b-container style="padding-top:20%">
         <b-row>
-          <b-col md="12" class="text-center">
+          <b-col
+            style="transition: 1s;"
+            :md="loading ? 12 : 2"
+            class="text-center"
+          >
             <img
               alt="Lightened Limited logo"
-              class="img-fluid"
+              :class="'img-fluid ' + (loading ? 'glow' : '')"
+              style="transition: 1s"
               src="../assets/icon.png"
             />
           </b-col>
+          <b-col
+            :md="loading ? '0' : '10'"
+            :style="
+              'transition: 0.5s;' +
+                (loading ? 'opacity: 0' : 'transition-delay: 1s;')
+            "
+          >
+            <h1>{{ info.name }}</h1>
+          </b-col>
         </b-row>
       </b-container>
-    </div>
-    <div
-      :style="
-        'transition:0.5s; transition-delay:0.5s; opacity:' +
-          (loading ? '1' : '0;height:0px')
-      "
-    >
-      <div class="stretched">
-        <b-container>
-          <b-row>
-            <b-col md="2" class="text-center mx-auto" style="margin-top:25%">
-              <img
-                alt="Lightened Limited logo"
-                class="img-fluid glow"
-                src="../assets/icon.png"
-              />
-            </b-col>
-          </b-row>
-        </b-container>
-      </div>
+      <Projects></Projects>
     </div>
   </div>
 </template>
 
 <script>
+const Projects = () => import("../components/Projects.vue");
+
+const Basic = () => import("../../LightenedLimited");
+
 export default {
   name: "Home",
   data() {
     return {
-      loading: this.$store.getters.lightened
+      loading: true,
+      info: localStorage.LightenedLimited
+        ? JSON.parse(localStorage.LightenedLimited)
+        : {}
     };
   },
   mounted() {
+    const next = () => {
+      if (this.info.name) {
+        this.loading = false;
+      }
+      Basic().then(data => {
+        data = data.default;
+        if (this.info.version && this.info.version === data.version) return;
+        localStorage.LightenedLimited = JSON.stringify(data);
+        this.info = data;
+        this.loading = false;
+      });
+    };
     if (document.readyState == "complete") {
-      this.loading = false;
+      next();
     } else {
-      window.onload = () => (this.loading = false);
+      window.onload = () => next();
     }
+  },
+  components: {
+    Projects
   }
 };
 </script>
 <style>
+img.big {
+  height: 200px;
+}
 .stretched {
   top: 0;
   left: 0;
@@ -100,6 +119,8 @@ export default {
 .fixed {
   position: fixed;
   z-index: 999;
+  width: 100%;
+  height: 100%;
 }
 #particles-js,
 #particles-js canvas {

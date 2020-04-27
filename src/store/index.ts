@@ -1,30 +1,41 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
-const importer = () => import("../../LightenedLimited");
-const cache = JSON.parse(localStorage.lightened_limited || "{}");
+import { basic as Basic } from "../../LightenedLimited";
+
+import { projects as Projects } from "../../Projects";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    lightened: cache
+    lightened: {},
+    projects: {}
   },
   getters: {
-    lightened(state) {
-      importer().then(directData => {
-        if (
-          !state.lightened.basic ||
-          state.lightened.basic.version != directData.basic.version
-        ) {
-          state.lightened = directData;
-          console.log("updated");
-          if (process.env.NODE_ENV === "production") {
-            localStorage.LightenedLimited = directData;
-          }
-        }
-      });
+    lightened: state => {
       return state.lightened;
+    },
+    projects: state => {
+      console.log(Projects);
+      if (state.projects) return state.projects;
+      state.projects = Projects;
+      console.log(state.projects);
+      return Projects;
+    }
+  },
+  mutations: {
+    lightened(state, value) {
+      console.log("IN MUTATION");
+      state.lightened = value;
+    }
+  },
+  actions: {
+    getLightened: store => {
+      console.log(Basic);
+      if (store.getters.lightened.version) return store.getters.lightened;
+      store.commit("lightened", Basic);
+      return Basic;
     }
   }
 });

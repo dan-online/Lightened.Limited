@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Navbar></Navbar>
     <router-view />
   </div>
 </template>
@@ -13,10 +14,19 @@
 html,
 body {
   background-color: var(--lightened-black) !important;
+  font-family: "Manrope", sans-serif !important;
+  color: #fff !important;
 }
 </style>
 <script>
+import Navbar from "@/components/Navbar";
 export default {
-  name: "App"
+  name: "App",
+  mounted() {
+    window.app = this;
+  },
+  components: {
+    Navbar
+  }
 };
 </script>

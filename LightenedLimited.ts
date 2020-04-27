@@ -1,6 +1,5 @@
-export const basic = {
+export default {
   version: "1.0.0",
   name: "Lightened",
-  projects: [],
   experience: []
 };
