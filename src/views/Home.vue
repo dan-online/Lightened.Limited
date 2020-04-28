@@ -33,7 +33,7 @@
                 'transition: all 1s; ' +
                   (loading ? 'width: 10vh' : 'width:22vh')
               "
-              src="../assets/icon.png"
+              src="../../public/icon.png"
             />
           </b-col>
           <b-col

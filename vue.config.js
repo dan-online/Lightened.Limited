@@ -1,5 +1,7 @@
+const report = process.argv.find(x => x == "--report");
 module.exports = {
   configureWebpack: {
+    plugins: [],
     optimization: {
       splitChunks: {
         minSize: 10000,
@@ -8,3 +10,8 @@ module.exports = {
     }
   }
 };
+if (report) {
+  const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+    .BundleAnalyzerPlugin;
+  module.exports.configureWebpack.plugins.push(new BundleAnalyzerPlugin());
+}

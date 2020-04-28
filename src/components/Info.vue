@@ -1,7 +1,11 @@
 <template>
   <div>
     <span
-      ><a class="mr-1" href="https://github.com/dan-online/Lightened.Limited">
+      ><a
+        class="mr-1"
+        aria-label="Lightened.Limited github repo"
+        href="https://github.com/dan-online/Lightened.Limited"
+      >
         <fa icon="code-branch"></fa
       ></a>
       with
