@@ -8,6 +8,27 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import VueParticles from "vue-particles";
 Vue.use(VueParticles);
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCodeBranch, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faTwitter,
+  faGithub,
+  faPatreon,
+  faDiscord
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+library.add(
+  faCodeBranch,
+  faFacebook,
+  faTwitter,
+  faGithub,
+  faPatreon,
+  faDiscord,
+  faEnvelope
+);
+Vue.component("fa", FontAwesomeIcon);
+
 Vue.use(LayoutPlugin);
 Vue.use(NavbarPlugin);
 Vue.config.productionTip = false;

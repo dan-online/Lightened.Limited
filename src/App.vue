@@ -17,6 +17,16 @@ body {
   font-family: "Manrope", sans-serif !important;
   color: #fff !important;
 }
+.accent,
+a {
+  color: var(--lightened-first) !important;
+}
+.accent-second {
+  color: var(--lightened-first) !important;
+}
+.accent-third {
+  color: var(--lightened-first) !important;
+}
 </style>
 <script>
 import Navbar from "@/components/Navbar";

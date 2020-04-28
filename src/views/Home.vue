@@ -19,28 +19,32 @@
     >
     </vue-particles>
     <div class="fixed">
-      <b-container style="padding-top:20%">
+      <b-container style="padding-top:15%">
         <b-row>
           <b-col
             style="transition: 1s;"
-            :md="loading ? 12 : 2"
-            class="text-center"
+            :md="loading ? 12 : 3"
+            class="text-center mt-4"
           >
             <img
               alt="Lightened Limited logo"
-              :class="'img-fluid ' + (loading ? 'glow' : '')"
-              style="transition: 1s"
+              :class="'img-responsive ' + (loading ? 'glow' : '')"
+              :style="
+                'transition: all 1s; ' +
+                  (loading ? 'width: 10vh' : 'width:22vh')
+              "
               src="../assets/icon.png"
             />
           </b-col>
           <b-col
-            :md="loading ? '0' : '10'"
+            class="mt-4"
+            :md="loading ? '0' : '8'"
             :style="
               'transition: 0.5s;' +
                 (loading ? 'opacity: 0' : 'transition-delay: 1s;')
             "
           >
-            <h1>{{ info.name }}</h1>
+            <Info :info="info" v-if="!loading"></Info>
           </b-col>
         </b-row>
       </b-container>
@@ -51,7 +55,7 @@
 
 <script>
 const Projects = () => import("../components/Projects.vue");
-
+const Info = () => import("../components/Info.vue");
 const Basic = () => import("../../LightenedLimited");
 
 export default {
@@ -72,7 +76,9 @@ export default {
       Basic().then(data => {
         data = data.default;
         if (this.info.version && this.info.version === data.version) return;
-        localStorage.LightenedLimited = JSON.stringify(data);
+        if (process.env.NODE_ENV === "production")
+          localStorage.LightenedLimited = JSON.stringify(data);
+        else delete localStorage.LightenedLimited;
         this.info = data;
         this.loading = false;
       });
@@ -84,7 +90,8 @@ export default {
     }
   },
   components: {
-    Projects
+    Projects,
+    Info
   }
 };
 </script>
