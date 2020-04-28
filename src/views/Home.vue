@@ -33,7 +33,7 @@
                 'transition: all 1s; ' +
                   (loading ? 'width: 10vh' : 'width:22vh')
               "
-              src="../../public/icon.png"
+              src="../../public/iconx4.png"
             />
           </b-col>
           <b-col
@@ -69,6 +69,7 @@ export default {
     };
   },
   mounted() {
+    console.log("IN HOME MOUNTED")
     const next = () => {
       if (this.info.name) {
         this.loading = false;
