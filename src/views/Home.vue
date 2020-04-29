@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <vue-particles
       color="#71dea2"
       :particleOpacity="1"
@@ -18,9 +18,9 @@
       "
     >
     </vue-particles>
-    <div class="fixed">
-      <b-container style="padding-top:15%">
-        <b-row>
+    <div class="fixed" style="overflow-y: scroll;">
+      <b-container style=" height: 100vh">
+        <b-row style="padding-top:25%;">
           <b-col
             style="transition: 1s;"
             :md="loading ? 12 : 3"
@@ -31,7 +31,7 @@
               :class="'img-responsive ' + (loading ? 'glow' : '')"
               :style="
                 'transition: all 1s; ' +
-                  (loading ? 'width: 10vh' : 'width:22vh')
+                  (loading ? 'width: 10vh' : 'max-width: 100%; width:22vh')
               "
               src="../../public/icon.png"
             />
@@ -50,12 +50,12 @@
       </b-container>
       <b-container
         :style="
-          'transition: 0.5s;' +
+          'background: white; padding-top: 10%; transition: 0.5s;' +
             (loading ? 'opacity: 0' : 'transition-delay: 1s;')
         "
       >
         <b-row>
-          <b-col md="12">
+          <b-col md="12"> 
             <Projects v-if="!loading"></Projects>
           </b-col>
         </b-row>
