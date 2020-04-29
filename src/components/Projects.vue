@@ -1,24 +1,17 @@
 <template>
   <b-container>
-    <carousel :perPage="1">
-      <slide v-for="project in projects.projects" :key="project.id">
-        <b-row class="p-5">
-          <b-col cols="8">
-            <b-img-lazy :src="project.image"></b-img-lazy>
-          </b-col>
-          <b-col>
-            <h1>{{project.desc}}</h1>
-          </b-col>
-        </b-row>
+    <carousel-3d :display="3" :space="800" :inverse-scaling="1500">
+      <slide v-for="i in test" :index="i-1" :key="i">
+       {{i}}
       </slide>
-    </carousel>
+    </carousel-3d>
   </b-container>
 </template>
 
 
 
 <script>
-import { Carousel, Slide } from 'vue-carousel';
+import { Carousel3d, Slide } from 'vue-carousel-3d';
 const Projects = () => import("../../Projects");
 
 
@@ -26,17 +19,18 @@ export default {
   name: "Projects",
   data() {
     return {
-      test: "test", 
       projects: localStorage.LightenedProjects
         ? JSON.parse(localStorage.LightenedProjects)
         : {},
+      test: 7
     }
   }, 
   mounted() {
     if (this.projects.version) {
       this.loading = false;
+      console.log(this)
     }
-
+    console.log(this)
     Projects().then(data => {
       data = data.default;
       if (this.projects.verison && this.projects.version === data.version) return;
@@ -45,25 +39,43 @@ export default {
       else delete localStorage.LightenedProjects;
       this.projects = data;
       this.loading = false;
+      this.$nextTick(() => window.dispatchEvent(new Event('resize')))
     });
   },
   components: {
-    Carousel, 
+    Carousel3d, 
     Slide
+  },
+  watch: {
+    loading(newValue) {
+      console.log("THIS")
+      if (!newValue) {
+        console.log(this); 
+        this.$nextTick(() => window.dispatchEvent(new Event('resize')))
+      }
+    }
   }
 }
+
 
 </script>
 
 <style scoped>
 
-.VueCarousel {
-  height: 100vh;
-}
-
 img {
   height: 80%;
   width: auto; 
+}
+
+
+.container {
+  height: 100vh;
+}
+
+.VueCarousel-slide {
+  visibility: visible;
+  flex-basis: 100%;
+  width: 100%;
 }
 
 </style>

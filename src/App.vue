@@ -19,7 +19,7 @@ body {
 }
 .accent,
 a {
-  color: var(--lightened-first) !important;
+  color: var(--lightened-first);
 }
 .accent-second {
   color: var(--lightened-first) !important;

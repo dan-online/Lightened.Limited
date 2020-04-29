@@ -7,37 +7,43 @@ export default {
       name: "Facebook",
       url: "https://facebook.com",
       icon: ["fab", "facebook"],
-      color: "#3b5998"
+      color: "#3b5998",
+      hoverColor: "var(--lightened-first)"
     },
     {
       name: "Twitter",
       url: "https://twitter.com",
       icon: ["fab", "twitter"],
-      color: "#00acee"
+      color: "#00acee",
+      hoverColor: "var(--lightened-first)"
     },
     {
       name: "Github",
       url: "https://github.com",
       icon: ["fab", "github"],
-      color: "#fff"
+      color: "#fff",
+      hoverColor: "var(--lightened-first)"
     },
     {
       name: "Patreon",
       url: "https://patreon.com",
       icon: ["fab", "patreon"],
-      color: "#f96854"
+      color: "#f96854",
+      hoverColor: "var(--lightened-first)"
     },
     {
       name: "Discord",
       url: "https://discordapp.com",
       icon: ["fab", "discord"],
-      color: "#fff"
+      color: "#fff",
+      hoverColor: "var(--lightened-first)"
     },
     {
       name: "Email",
       url: "mailto:me@lightened.limited",
       icon: "envelope",
-      color: "var(--lightened-first)"
+      color: "var(--lightened-first)",
+      hoverColor: "var(--lightened-second)"
     }
   ],
   email: "me@lightened.limited",
