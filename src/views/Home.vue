@@ -54,8 +54,8 @@
 </template>
 
 <script>
-const Projects = () => import("../components/Projects.vue");
-const Info = () => import("../components/Info.vue");
+const Projects = () => import("@/components/Projects.vue");
+const Info = () => import("@/components/Info.vue");
 const Basic = () => import("../../LightenedLimited");
 
 export default {
