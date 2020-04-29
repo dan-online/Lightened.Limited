@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <vue-particles
       color="#71dea2"
       :particleOpacity="1"
@@ -18,8 +18,16 @@
       "
     >
     </vue-particles>
-    <div class="fixed" style="overflow-y: scroll;">
-      <b-container style=" height: 100vh">
+    <Navbar
+      v-if="!loading"
+      :style="'transition: 0.5s;' + (navMode ? 'opacity: 1' : 'opacity:0')"
+    ></Navbar>
+    <div
+      class="fixed"
+      v-on:scroll.passive="e => (scroll = e.target.scrollTop)"
+      style="overflow-y: scroll;"
+    >
+      <b-container style="height: 100vh">
         <b-row style="padding-top:25%;">
           <b-col
             style="transition: 1s;"
@@ -49,13 +57,14 @@
         </b-row>
       </b-container>
       <b-container
+        class="mt-4"
         :style="
-          'background: white; padding-top: 10%; transition: 0.5s;' +
+          'transition: 0.5s;' +
             (loading ? 'opacity: 0' : 'transition-delay: 1s;')
         "
       >
         <b-row>
-          <b-col md="12"> 
+          <b-col md="12">
             <Projects v-if="!loading"></Projects>
           </b-col>
         </b-row>
@@ -68,7 +77,7 @@
 const Projects = () => import("@/components/Projects.vue");
 const Info = () => import("@/components/Info.vue");
 const Basic = () => import("../../LightenedLimited");
-
+const Navbar = () => import("@/components/Navbar");
 export default {
   name: "Home",
   data() {
@@ -76,7 +85,9 @@ export default {
       loading: true,
       info: localStorage.LightenedLimited
         ? JSON.parse(localStorage.LightenedLimited)
-        : {}
+        : {},
+      scroll: 0,
+      navMode: false
     };
   },
   mounted() {
@@ -100,9 +111,15 @@ export default {
       window.onload = () => next();
     }
   },
+  watch: {
+    scroll() {
+      this.navMode = this.scroll >= 275;
+    }
+  },
   components: {
     Projects,
-    Info
+    Info,
+    Navbar
   }
 };
 </script>

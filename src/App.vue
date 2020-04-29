@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <Navbar></Navbar>
     <router-view />
   </div>
 </template>
@@ -29,14 +28,10 @@ a {
 }
 </style>
 <script>
-import Navbar from "@/components/Navbar";
 export default {
   name: "App",
   mounted() {
     window.app = this;
-  },
-  components: {
-    Navbar
   }
 };
 </script>
