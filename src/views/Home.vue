@@ -48,7 +48,18 @@
           </b-col>
         </b-row>
       </b-container>
-      <Projects></Projects>
+      <b-container
+        :style="
+          'transition: 0.5s;' +
+            (loading ? 'opacity: 0' : 'transition-delay: 1s;')
+        "
+      >
+        <b-row>
+          <b-col md="12">
+            <Projects v-if="!loading"></Projects>
+          </b-col>
+        </b-row>
+      </b-container>
     </div>
   </div>
 </template>
