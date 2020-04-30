@@ -1,9 +1,12 @@
 <template>
-  <b-container>
-    <carousel-3d :display="3" :space="800" :inverse-scaling="1500">
-      <slide v-for="(proj, i) in projects" :index="i - 1" :key="proj.id">
-        <b-img-lazy :src="proj.image"></b-img-lazy>
+  <b-container fluid>
+    <carousel-3d :display="3" :space="1200" :inverse-scaling="1300" @after-slide-change="pageChange" ref="carousel" :width="800" :height="500">
+      <slide v-for="(proj, i) in projects" :index="i" :key="proj.id"  >
+        <img v-if="!(i-currentSlide > 1) || !(i-currentSlide < -1)" :src="proj.image">
       </slide>
+      <!-- <slide v-for="(slide, i) in slides" :index="i" :key="i">
+        <img src="https://placehold.it/360x270">
+      </slide> -->
     </carousel-3d>
   </b-container>
 </template>
@@ -18,24 +21,39 @@ export default {
     return {
       projects: localStorage.LightenedProjects
         ? JSON.parse(localStorage.LightenedProjects)
-        : {}
+        : {},
+      currentSlide: 0,
+      slides: 7
     };
   },
   mounted() {
+    if(this.projects.version) {
+      this.$refs.carousel.goSlide(1); //damn vue-carousel-3d bugs
+    }
     Projects().then(data => {
       data = data.default;
-      if (this.projects.version && this.projects.version === data.version)
+      if (this.projects.version && this.projects.version === data.version) {
+        this.$nextTick(() => window.dispatchEvent(new Event("resize")));
         return;
+      }
       if (process.env.NODE_ENV === "production")
         localStorage.LightenedProjects = JSON.stringify(data);
       else delete localStorage.LightenedProjects;
       this.projects = data.projects;
-      this.$nextTick(() => window.dispatchEvent(new Event("resize")));
+      this.$nextTick(() => {
+        window.dispatchEvent(new Event("resize")); //damn vue-carousel-3d bugs
+        this.$refs.carousel.goSlide(1); 
+      });
     });
   },
   components: {
     Carousel3d,
     Slide
+  },
+  methods: {
+    pageChange(i) {
+      this.currentSlide = i; 
+    }
   }
 };
 </script>
@@ -46,13 +64,9 @@ img {
   width: auto;
 }
 
-.container {
+.container-fluid {
   height: 100vh;
+  /* width: 100vh; */
 }
 
-.VueCarousel-slide {
-  visibility: visible;
-  flex-basis: 100%;
-  width: 100%;
-}
 </style>

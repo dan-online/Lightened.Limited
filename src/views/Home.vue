@@ -62,6 +62,7 @@
           'transition: 0.5s;' +
             (loading ? 'opacity: 0' : 'transition-delay: 1s;')
         "
+        fluid
       >
         <b-row>
           <b-col md="12">
