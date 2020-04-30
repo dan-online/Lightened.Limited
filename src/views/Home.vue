@@ -19,7 +19,8 @@
     >
     </vue-particles>
     <Navbar
-      v-if="!loading"
+      v-if="!loading && info && info.social"
+      :socials="info.social"
       :style="'transition: 0.5s;' + (navMode ? 'opacity: 1' : 'opacity:0')"
     ></Navbar>
     <div

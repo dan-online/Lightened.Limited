@@ -15,34 +15,28 @@
       Hi, I'm <span class="accent">{{ info.name }}</span>
     </h1>
     <p>{{ info.about }}</p>
-    <a
-      class="icon mr-4"
-      :class="{'hover-first': social.hoverColor === 'var(--lightened-first)', 'hover-second': social.hoverColor != 'var(--lightened-first)'}"
-      :key="social.name"
-      :aria-label="social.name"
-      v-for="social in info.social"
-      :href="social.url"
-      :style="social.color ? 'color:' + social.color + '' : ''"
-    >
-      <fa :icon="social.icon"></fa>
-    </a>
+    <Socials v-if="info && info.social" :socials="info.social"></Socials>
   </div>
 </template>
 
 <script>
+const Socials = () => import("../components/Socials");
 export default {
   name: "Info",
   props: {
     info: {}
+  },
+  components: {
+    Socials
   }
 };
 </script>
 <style>
 .icon {
   font-size: 30px;
-  transition: all 1s; 
+  transition: all 1s;
 }
 .hover-first:hover {
-  color: var(--lightened-first) !important; 
+  color: var(--lightened-first) !important;
 }
 </style>

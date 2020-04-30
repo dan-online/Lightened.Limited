@@ -8,10 +8,26 @@
           src="../../public/icon.png"
         />
       </b-col>
-      <b-col cols="4"> </b-col>
+      <b-col cols="4">
+        <Socials v-if="socials" :socials="socials"></Socials>
+      </b-col>
     </b-row>
   </div>
 </template>
+<script>
+const Socials = () => import("./Socials");
+export default {
+  props: {
+    socials: {
+      default: () => [],
+      type: Array
+    }
+  },
+  components: {
+    Socials
+  }
+};
+</script>
 <style scoped>
 #nav,
 .container {
@@ -22,7 +38,7 @@
   width: 100%;
   background: rgba(0, 0, 0, 0.9) !important;
   z-index: 9999999;
-  border: var(--lightened-first) 1px solid;
+  border-bottom: var(--lightened-first) 1px solid;
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
