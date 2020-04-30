@@ -1,8 +1,29 @@
 <template>
   <b-container fluid>
-    <carousel-3d :display="3" :space="1200" :inverse-scaling="1300" @after-slide-change="pageChange" ref="carousel" :width="800" :height="500">
-      <slide v-for="(proj, i) in projects" :index="i" :key="proj.id"  >
-        <img v-if="!(i-currentSlide > 1) || !(i-currentSlide < -1)" :src="proj.image">
+    <carousel-3d
+      :display="3"
+      :space="1200"
+      :inverse-scaling="1300"
+      @before-slide-change="pageChange"
+      ref="carousel"
+      :width="800"
+      :height="500"
+    >
+      <slide v-for="(proj, i) in projects" :index="i" :key="proj.id">
+        <b-img-lazy
+          :src="
+            currentSlide == i ||
+            currentSlide - 1 == i ||
+            currentSlide + 1 == i ||
+            currentSlide - 2 == i ||
+            currentSlide + 2 == i ||
+            (i == projects.length - 1 && currentSlide - 1 == -1) ||
+            (i == 0 && currentSlide == projects.length - 1)
+              ? proj.image
+              : ''
+          "
+        ></b-img-lazy>
+        <!-- we are so sorry for this, we need to learn math better -->
       </slide>
       <!-- <slide v-for="(slide, i) in slides" :index="i" :key="i">
         <img src="https://placehold.it/360x270">
@@ -27,7 +48,7 @@ export default {
     };
   },
   mounted() {
-    if(this.projects.version) {
+    if (this.projects.version) {
       this.$refs.carousel.goSlide(1); //damn vue-carousel-3d bugs
     }
     Projects().then(data => {
@@ -42,7 +63,7 @@ export default {
       this.projects = data.projects;
       this.$nextTick(() => {
         window.dispatchEvent(new Event("resize")); //damn vue-carousel-3d bugs
-        this.$refs.carousel.goSlide(1); 
+        this.$refs.carousel.goSlide(1);
       });
     });
   },
@@ -52,7 +73,7 @@ export default {
   },
   methods: {
     pageChange(i) {
-      this.currentSlide = i; 
+      this.currentSlide = i;
     }
   }
 };
@@ -68,5 +89,4 @@ img {
   height: 100vh;
   /* width: 100vh; */
 }
-
 </style>

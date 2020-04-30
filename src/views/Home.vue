@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-particles
-      color="#71dea2"
+      :color="scroll < 100 ? '#71dea2' : '#000'"
       :particleOpacity="1"
       :particlesNumber="80"
       shapeType="circle"
@@ -19,12 +19,12 @@
     >
     </vue-particles>
     <Navbar
-      v-if="!loading && info && info.social"
-      :socials="info.social"
+      v-if="!loading && info"
+      :info="info"
       :style="'transition: 0.5s;' + (navMode ? 'opacity: 1' : 'opacity:0')"
     ></Navbar>
     <div
-      class="fixed"
+      :class="'fixed ' + (!loading ? 'loaded' : '')"
       v-on:scroll.passive="e => (scroll = e.target.scrollTop)"
       style="overflow-y: scroll;"
     >
@@ -89,7 +89,8 @@ export default {
         ? JSON.parse(localStorage.LightenedLimited)
         : {},
       scroll: 0,
-      navMode: false
+      navMode: false,
+      block: true
     };
   },
   mounted() {
@@ -116,6 +117,21 @@ export default {
   watch: {
     scroll() {
       this.navMode = this.scroll >= 275;
+      const vh = window.innerHeight;
+      const multiples = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
+        (x, ind) => vh * ind + 1
+      );
+      const block = Boolean(
+        Math.round(
+          (multiples.reverse().find(x => this.scroll + vh >= x - 350) / vh) % 2
+        )
+      );
+      if (block == this.block) return;
+      else this.block = block;
+      window.pJSDom[0].pJS.particles.array.forEach(p => {
+        p.color.value = block ? "#71dea2" : "#fff";
+      });
+      window.pJSDom[0].pJS.fn.particlesUpdate();
     }
   },
   components: {
@@ -126,6 +142,24 @@ export default {
 };
 </script>
 <style>
+@keyframes grider {
+  from {
+    background-size: 0px 0px;
+  }
+  to {
+    background-size: 80px 80px;
+  }
+}
+.fixed.loaded {
+  animation: grider 1.5s ease-in-out;
+  background-image: linear-gradient(
+      90deg,
+      rgba(128, 128, 128, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(180deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
 img.big {
   height: 200px;
 }

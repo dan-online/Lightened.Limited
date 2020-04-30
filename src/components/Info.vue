@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="load" :class="loading ? '' : 'loaded'">
     <span
       ><a
         class="mr-1 accent"
@@ -28,15 +28,35 @@ export default {
   },
   components: {
     Socials
+  },
+  data() {
+    return {
+      loading: true
+    };
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.loading = false;
+    });
   }
 };
 </script>
-<style>
-.icon {
-  font-size: 30px;
-  transition: all 1s;
-}
+<style scoped>
 .hover-first:hover {
   color: var(--lightened-first) !important;
+}
+#load * {
+  transition: all 1s;
+  opacity: 0;
+}
+#load.loaded * {
+  opacity: 1;
+}
+
+*:not(.accent) {
+  /* transition-delay: 2s !important; */
+}
+.accent {
+  transition-delay: 0s !important;
 }
 </style>

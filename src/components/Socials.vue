@@ -26,3 +26,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.icon {
+  font-size: 30px;
+  transition: all 1s;
+}
+</style>

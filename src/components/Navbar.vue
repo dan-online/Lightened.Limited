@@ -1,30 +1,26 @@
 <template>
   <div id="nav" class="p-2">
     <b-row>
-      <b-col cols="4" md="2">
+      <b-col cols="4" md="1">
         <img
           class="img-fluid"
           style="height:80px!important"
           src="../../public/icon.png"
         />
       </b-col>
-      <b-col cols="4">
-        <Socials v-if="socials" :socials="socials"></Socials>
+      <b-col cols="4" class="p-3">
+        <h1>{{ info.name }}</h1>
       </b-col>
     </b-row>
   </div>
 </template>
 <script>
-const Socials = () => import("./Socials");
 export default {
   props: {
-    socials: {
-      default: () => [],
-      type: Array
+    info: {
+      default: () => ({}),
+      type: Object
     }
-  },
-  components: {
-    Socials
   }
 };
 </script>
