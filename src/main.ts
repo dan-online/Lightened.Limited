@@ -47,7 +47,6 @@ if (process.env.NODE_ENV == "production") {
     release: "lightenedlimited@" + process.env.COMMIT_REF,
     integrations: [new VueIntegration({ Vue, attachProps: true })]
   });
-  throw new Error("oof");
   console.log("sentry init");
 }
 
