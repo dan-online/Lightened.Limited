@@ -46,7 +46,7 @@ if (process.env.NODE_ENV == "production") {
     release: "lightenedlimited@" + process.env.COMMIT_REF,
     integrations: [new VueIntegration({ Vue, attachProps: true })]
   });
-  Sentry.captureEvent(new Error("test"));
+  Sentry.captureException(new Error("test"));
 }
 
 Vue.use(LayoutPlugin);
