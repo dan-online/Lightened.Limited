@@ -42,7 +42,7 @@
                 'transition: all 1s; ' +
                   (loading ? 'width: 10vh' : 'max-width: 100%; width:22vh')
               "
-              src="../../public/icon.png"
+              src="../../public/icon.webp"
             />
           </b-col>
           <b-col

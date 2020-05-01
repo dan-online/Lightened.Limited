@@ -6,7 +6,7 @@
           <img
             alt="LightenedLimited logo"
             class="img-fluid glow"
-            src="../assets/icon.png"
+            src="../assets/icon.webp"
           />
         </b-col>
       </b-row>
