@@ -53,6 +53,7 @@ svg.accent {
   background: #fff;
   border-radius: 0.2rem;
   width: 100%;
+  height: 100%;
 }
 </style>
 <script>
