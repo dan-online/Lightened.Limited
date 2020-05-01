@@ -144,11 +144,20 @@ export default {
 <style>
 @keyframes grider {
   from {
-    background-size: 0px 0px;
+    background-size: 10px 10px;
   }
   to {
     background-size: 80px 80px;
   }
+}
+.fixed {
+  background-size: 10px 10px;
+  background-image: linear-gradient(
+      90deg,
+      rgba(128, 128, 128, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(180deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
 }
 .fixed.loaded {
   animation: grider 1.5s ease-in-out;
