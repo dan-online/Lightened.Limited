@@ -37,6 +37,16 @@ library.add(
 );
 Vue.component("fa", FontAwesomeIcon);
 
+if (process.env.NODE_ENV == "production") {
+  import * as Sentry from "@sentry/browser";
+  import { Vue as VueIntegration } from "@sentry/integrations";
+
+  Sentry.init({
+    dsn: process.env.DSN,
+    integrations: [new VueIntegration({ Vue, attachProps: true })]
+  });
+}
+
 Vue.use(LayoutPlugin);
 Vue.use(NavbarPlugin);
 Vue.use(ImagePlugin);
