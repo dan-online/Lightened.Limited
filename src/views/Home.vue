@@ -21,7 +21,9 @@
     <Navbar
       v-if="!loading && info"
       :info="info"
-      :style="'transition: 0.5s;' + (navMode ? 'opacity: 1' : 'opacity:0')"
+      :style="
+        'transition: 0.5s;' + (navMode ? 'opacity: 1' : 'opacity:0;height:0px')
+      "
     ></Navbar>
     <div
       :class="'fixed ' + (!loading ? 'loaded' : '')"
@@ -192,6 +194,11 @@ export default {
   left: 20px;
   bottom: 20px;
   z-index: 99999999999999;
+}
+@media (max-width: 768px) {
+  .floater {
+    display: none;
+  }
 }
 @keyframes grider {
   from {
