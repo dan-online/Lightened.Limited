@@ -2,6 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 
+import * as Sentry from "@sentry/browser";
+import { Vue as VueIntegration } from "@sentry/integrations";
+
 import { LayoutPlugin, NavbarPlugin, ImagePlugin } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -38,9 +41,6 @@ library.add(
 Vue.component("fa", FontAwesomeIcon);
 
 if (process.env.NODE_ENV == "production") {
-  import * as Sentry from "@sentry/browser";
-  import { Vue as VueIntegration } from "@sentry/integrations";
-
   Sentry.init({
     dsn: process.env.DSN,
     integrations: [new VueIntegration({ Vue, attachProps: true })]
