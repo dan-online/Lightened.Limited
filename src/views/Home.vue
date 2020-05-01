@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-particles
-      :color="scroll < 100 ? '#71dea2' : '#000'"
+      color="#71dea2"
       :particleOpacity="1"
       :particlesNumber="80"
       shapeType="circle"
@@ -26,7 +26,7 @@
     <div
       :class="'fixed ' + (!loading ? 'loaded' : '')"
       v-on:scroll.passive="e => (scroll = e.target.scrollTop)"
-      style="overflow-y: scroll;"
+      :style="!loading ? 'overflow-y: scroll;' : 'overflow-y:hidden'"
     >
       <b-container style="height: 100vh">
         <b-row style="padding-top:25%;">
@@ -71,6 +71,27 @@
           </b-col>
         </b-row>
       </b-container>
+      <div
+        v-if="!loading"
+        class="floater"
+        :style="
+          'transition: 0.5s;' +
+            (loading ? 'opacity: 0' : 'transition-delay: 1s;')
+        "
+      >
+        Running <span class="accent">v{{ info.version }}</span
+        ><br />
+        Github commit
+        <a :href="commits[0].html_url">{{ commits[0].sha.slice(0, 7) }}</a
+        ><br />
+        Last updated
+        <span class="accent">{{
+          new Date(commits[0].commit.author.date)
+            .toString()
+            .split(new Date(commits[0].commit.author.date).getFullYear())[0] +
+            " 2020"
+        }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -90,7 +111,8 @@ export default {
         : {},
       scroll: 0,
       navMode: false,
-      block: true
+      block: true,
+      commits: []
     };
   },
   mounted() {
@@ -106,12 +128,13 @@ export default {
         else delete localStorage.LightenedLimited;
         this.info = data;
         this.loading = false;
+        this.commits = require("../assets/repoInfo.json");
       });
     };
     if (document.readyState == "complete") {
-      next();
+      this.$nextTick(next);
     } else {
-      window.onload = () => next();
+      window.onload = () => this.$nextTick(next);
     }
   },
   watch: {
@@ -142,6 +165,12 @@ export default {
 };
 </script>
 <style>
+.floater {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 99999999999999;
+}
 @keyframes grider {
   from {
     background-size: 10px 10px;

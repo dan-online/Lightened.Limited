@@ -3,13 +3,6 @@
     <router-view />
   </div>
 </template>
-<script>
-export default {
-  mounted() {
-    this.$route;
-  }
-};
-</script>
 <style>
 /* @keyframes grider {
   0% {
