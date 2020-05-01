@@ -42,7 +42,8 @@ Vue.component("fa", FontAwesomeIcon);
 
 if (process.env.NODE_ENV == "production") {
   Sentry.init({
-    dsn: process.env.DSN,
+    dsn:
+      "https://adbc7f5db01042d8857fe4282de69d17@o193439.ingest.sentry.io/5220675",
     release: "lightenedlimited@" + process.env.COMMIT_REF,
     integrations: [new VueIntegration({ Vue, attachProps: true })]
   });
