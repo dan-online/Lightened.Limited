@@ -36,7 +36,7 @@
             class="text-center mt-4"
           >
             <img
-              alt="Lightened Limited logo"
+              alt="LightenedLimited logo"
               :class="'img-responsive ' + (loading ? 'glow' : '')"
               :style="
                 'transition: all 1s; ' +

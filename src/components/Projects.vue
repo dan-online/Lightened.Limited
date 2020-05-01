@@ -9,13 +9,9 @@
       :width="800"
       :height="500"
     >
-      <slide
-        :class="currentSlide == i ? 'showme' : 'ignoreme'"
-        v-for="(proj, i) in projects"
-        :index="i"
-        :key="proj.id"
-      >
-        <!-- <VueLightbox
+      <div v-for="(proj, i) in projects" :key="proj.id">
+        <slide :class="currentSlide == i ? 'showme' : 'ignoreme'" :index="i">
+          <!-- <VueLightbox
           :images="[proj.image]"
           :thumbnail="
             currentSlide == i ||
@@ -29,52 +25,46 @@
               : ''
           "
         /> -->
-        <VueLightbox
-          :thumbnail="
-            currentSlide == i ||
-            currentSlide - 1 == i ||
-            currentSlide + 1 == i ||
-            currentSlide - 2 == i ||
-            currentSlide + 2 == i ||
-            (i == projects.length - 1 && currentSlide - 1 == -1) ||
-            (i == 0 && currentSlide == projects.length - 1)
-              ? proj.image
-              : ''
-          "
-          :images="currentSlide == i ? proj.slides : []"
-        >
-          <template
-            v-slot:content="{ url: { image, title, description, link, alt } }"
-          >
+          <div @click="() => (lightbox = proj)">
             <b-img-lazy
-              @load="() => (imgloaded = true)"
-              style="height: 50%"
-              :src="image"
-              :alt="alt"
-            />
-            <div>
-              <h1>
-                <a class="accent" :href="link" target="_blank">{{ title }}</a>
-              </h1>
-              <p>{{ description }}</p>
-            </div>
-          </template>
-        </VueLightbox>
-
-        <!-- we are so sorry for this, we need to learn math better -->
-      </slide>
-      <!-- <slide v-for="(slide, i) in slides" :index="i" :key="i">
-        <img src="https://placehold.it/360x270">
-      </slide> -->
+              :alt="'LightenedLimited ' + proj.name"
+              class="thumb"
+              :src="
+                currentSlide == i ||
+                currentSlide - 1 == i ||
+                currentSlide + 1 == i ||
+                currentSlide - 2 == i ||
+                currentSlide + 2 == i ||
+                (i == projects.length - 1 && currentSlide - 1 == -1) ||
+                (i == 0 && currentSlide == projects.length - 1)
+                  ? proj.image
+                  : ''
+              "
+            >
+            </b-img-lazy>
+          </div>
+          <!-- we are so sorry for this, we need to learn math better -->
+        </slide>
+      </div>
     </carousel-3d>
+    <b-row>
+      <b-col md="12" class="text-center">
+        <p>Slide or click to move the carousel, click an image to view more!</p>
+      </b-col>
+    </b-row>
+    <LightBox
+      @close="() => (lightbox = {})"
+      v-if="lightbox && lightbox.name"
+      :project="lightbox"
+    >
+    </LightBox>
   </b-container>
 </template>
 
 <script>
 import { Carousel3d, Slide } from "vue-carousel-3d";
-import "vue-pure-lightbox/dist/VuePureLightbox.css";
+const LightBox = () => import("@/components/LightBox");
 const Projects = () => import("../../Projects");
-const VueLightbox = () => import("vue-pure-lightbox");
 export default {
   name: "Projects",
   data() {
@@ -83,7 +73,8 @@ export default {
         ? JSON.parse(localStorage.LightenedProjects)
         : {},
       currentSlide: 0,
-      slides: 7
+      slides: 7,
+      lightbox: {}
     };
   },
   mounted() {
@@ -109,7 +100,7 @@ export default {
   components: {
     Carousel3d,
     Slide,
-    VueLightbox
+    LightBox
   },
   methods: {
     pageChange(i) {
@@ -129,9 +120,11 @@ div.ignoreme * {
 div.ignoreme {
   cursor: pointer;
 }
-.lightbox__thumbnail img {
-  height: 500px;
-  width: 800px;
+.lightbox__thumbnail img,
+.thumb {
+  cursor: pointer;
+  max-height: 500px;
+  max-width: 800px;
   object-fit: cover;
 }
 .lightbox__image img {

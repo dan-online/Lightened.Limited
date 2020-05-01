@@ -10,7 +10,7 @@
       :aria-label="social.name"
       v-for="social in socials"
       :href="social.url"
-      :style="social.color ? 'color:' + social.color + '' : ''"
+      :style="social.color ? 'color:' + social.color + '!important' : ''"
     >
       <fa :icon="social.icon"></fa>
     </a>

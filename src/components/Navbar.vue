@@ -4,6 +4,7 @@
       <b-col cols="4" md="1">
         <img
           class="img-fluid"
+          alt="LightenedLimited logo"
           style="height:80px!important"
           src="../../public/icon.png"
         />

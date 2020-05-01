@@ -435,9 +435,19 @@ body {
   font-family: "Manrope", sans-serif !important;
   color: #fff !important;
 }
+button,
+button:focus {
+  background: none;
+  outline: none !important;
+  border: none;
+}
+button:focus,
+button:hover {
+  opacity: 0.7;
+}
 .accent,
 a {
-  color: var(--lightened-first);
+  color: var(--lightened-first) !important;
 }
 .accent-second {
   color: var(--lightened-first) !important;

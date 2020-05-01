@@ -12,7 +12,11 @@ import VueLazyLoad from "vue-lazyload";
 Vue.use(VueLazyLoad);
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faCodeBranch, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCodeBranch,
+  faEnvelope,
+  faTimes
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faTwitter,
@@ -28,7 +32,8 @@ library.add(
   faGithub,
   faPatreon,
   faDiscord,
-  faEnvelope
+  faEnvelope,
+  faTimes
 );
 Vue.component("fa", FontAwesomeIcon);
 

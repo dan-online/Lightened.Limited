@@ -3,7 +3,11 @@
     <b-container>
       <b-row>
         <b-col md="2" class="text-center mx-auto" style="margin-top:25%">
-          <img class="img-fluid glow" src="../assets/icon.png" />
+          <img
+            alt="LightenedLimited logo"
+            class="img-fluid glow"
+            src="../assets/icon.png"
+          />
         </b-col>
       </b-row>
     </b-container>
