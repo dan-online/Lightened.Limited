@@ -35,15 +35,37 @@
             :md="loading ? 12 : 3"
             class="text-center mt-4"
           >
-            <img
-              alt="LightenedLimited logo"
-              :class="'img-responsive ' + (loading ? 'glow' : '')"
-              :style="
-                'transition: all 1s; ' +
-                  (loading ? 'width: 10vh' : 'max-width: 100%; width:22vh')
-              "
-              src="../../public/icon.webp"
-            />
+            <picture>
+              <source
+                alt="LightenedLimited logo"
+                :class="'img-responsive ' + (loading ? 'glow' : '')"
+                :style="
+                  'transition: all 1s; ' +
+                    (loading ? 'width: 10vh' : 'max-width: 100%; width:22vh')
+                "
+                type="image/webp"
+                :srcset="require('../../public/icon.webp')"
+              />
+              <source
+                alt="LightenedLimited logo"
+                :class="'img-responsive ' + (loading ? 'glow' : '')"
+                :style="
+                  'transition: all 1s; ' +
+                    (loading ? 'width: 10vh' : 'max-width: 100%; width:22vh')
+                "
+                type="image/png"
+                :srcset="require('../../public/icon.png')"
+              />
+              <img
+                alt="LightenedLimited logo"
+                :class="'img-responsive ' + (loading ? 'glow' : '')"
+                :style="
+                  'transition: all 1s; ' +
+                    (loading ? 'width: 10vh' : 'max-width: 100%; width:22vh')
+                "
+                src="../../public/icon.png"
+              />
+            </picture>
           </b-col>
           <b-col
             class="mt-4"
