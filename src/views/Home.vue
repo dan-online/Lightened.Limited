@@ -117,6 +117,7 @@ export default {
   },
   mounted() {
     const next = () => {
+      this.commits = require("../assets/repoInfo.json");
       if (this.info.name) {
         this.loading = false;
       }
@@ -128,7 +129,6 @@ export default {
         else delete localStorage.LightenedLimited;
         this.info = data;
         this.loading = false;
-        this.commits = require("../assets/repoInfo.json");
       });
     };
     if (document.readyState == "complete") {
