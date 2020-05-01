@@ -72,7 +72,7 @@
         </b-row>
       </b-container>
       <div
-        v-if="!loading"
+        v-if="!loading && commits[0] && commits[0].commit"
         class="floater"
         :style="
           'transition: 0.5s;' +
