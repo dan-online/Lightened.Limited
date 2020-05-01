@@ -43,11 +43,10 @@ Vue.component("fa", FontAwesomeIcon);
 if (process.env.NODE_ENV == "production") {
   Sentry.init({
     dsn: process.env.DSN,
-    release: "lightenedlimited@" + process.env.COMMIT_REF
+    release: "lightenedlimited@" + process.env.COMMIT_REF,
     integrations: [new VueIntegration({ Vue, attachProps: true })]
-
   });
-  Sentry.captureEvent(new Error("test"))
+  Sentry.captureEvent(new Error("test"));
 }
 
 Vue.use(LayoutPlugin);
