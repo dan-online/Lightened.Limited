@@ -47,6 +47,7 @@ if (process.env.NODE_ENV == "production") {
     integrations: [new VueIntegration({ Vue, attachProps: true })]
   });
   Sentry.captureException(new Error("test"));
+  console.log("sentry init");
 }
 
 Vue.use(LayoutPlugin);
@@ -58,3 +59,4 @@ new Vue({
   router,
   render: h => h(App)
 }).$mount("#app");
+console.log("vue init");
