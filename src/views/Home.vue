@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div ref="home">
     <vue-particles
       color="#71dea2"
       :particleOpacity="1"
@@ -19,6 +19,7 @@
     >
     </vue-particles>
     <Navbar
+      @scroll="ref => $emit('scroll', ref)"
       v-if="!loading && info"
       :info="info"
       :style="
@@ -91,7 +92,7 @@
       >
         <b-row>
           <b-col md="12">
-            <Projects v-if="!loading"></Projects>
+            <Projects ref="projects" v-if="!loading"></Projects>
           </b-col>
         </b-row>
       </b-container>
@@ -178,7 +179,7 @@ export default {
       window.pJSDom[0].pJS.particles.array.forEach(p => {
         p.color.value = block ? "#71dea2" : "#fff";
       });
-      window.pJSDom[0].pJS.fn.particlesUpdate();
+      console.log("update");
     }
   },
   components: {

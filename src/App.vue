@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view />
+    <router-view @scroll="scroll" />
   </div>
 </template>
 <style>
@@ -438,6 +438,11 @@ button:focus,
 button:hover {
   opacity: 0.7;
 }
+button.lightened {
+  border: var(--lightened-first) 2px solid;
+  border-radius: 0.2rem;
+  color: var(--lightened-first);
+}
 .accent,
 a {
   color: var(--lightened-first) !important;
@@ -463,6 +468,15 @@ export default {
   name: "App",
   mounted() {
     window.app = this;
+  },
+  methods: {
+    scroll(ref) {
+      let $ref = this.$children.find(x => {
+        return x.$refs[ref];
+      });
+      $ref = $ref.$el || $ref;
+      console.log($ref.scrollIntoView());
+    }
   }
 };
 </script>

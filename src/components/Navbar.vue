@@ -1,16 +1,23 @@
 <template>
   <div id="nav" class="p-2">
     <b-row>
-      <b-col cols="4" md="1">
+      <b-col md="12">
         <img
           class="img-fluid"
           alt="LightenedLimited logo"
           style="height:80px!important"
           src="../../public/icon.png"
         />
-      </b-col>
-      <b-col cols="4" class="p-3">
-        <h1>{{ info.name }}</h1>
+        <h3 style="display:inline" class="ml-3 pt-3">{{ info.name }}</h3>
+        <button @click="() => $emit('scroll', 'home')" class="ml-4 lightened">
+          Home
+        </button>
+        <button
+          @click="() => $emit('scroll', 'projects')"
+          class="ml-4 lightened"
+        >
+          Projects
+        </button>
       </b-col>
     </b-row>
   </div>
