@@ -49,7 +49,7 @@ if (process.env.NODE_ENV == "production") {
     release,
     integrations: [new VueIntegration({ Vue, attachProps: true })]
   });
-  console.log("sentry init release " + "lightenedlimited@" + release);
+  console.log("sentry init release " + release);
 }
 
 Vue.use(LayoutPlugin);
