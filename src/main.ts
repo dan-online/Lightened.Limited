@@ -41,8 +41,7 @@ library.add(
 Vue.component("fa", FontAwesomeIcon);
 
 if (process.env.NODE_ENV == "production") {
-  const release =
-    "lightenedlimited@" + process.env.COMMIT_REF || process.env.BUILD_ID;
+  const release = "lightenedlimited@" + process.env.VUE_APP_BUILD_ID;
   Sentry.init({
     dsn:
       "https://adbc7f5db01042d8857fe4282de69d17@o193439.ingest.sentry.io/5220675",
