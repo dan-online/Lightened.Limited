@@ -34,7 +34,7 @@
       <b-container style="height: 100vh">
         <b-row style="padding-top:25%;">
           <b-col
-            style="transition: 1s;"
+            :style="'transition: ' + load + 's'"
             :md="loading ? 12 : 3"
             class="text-center mt-4"
           >
@@ -74,8 +74,10 @@
             class="mt-4"
             :md="loading ? '0' : '8'"
             :style="
-              'transition: 0.5s;' +
-                (loading ? 'opacity: 0' : 'transition-delay: 1s;')
+              'transition: ' +
+                load +
+                's;' +
+                (loading ? 'opacity: 0' : 'transition-delay:' + load + 's;')
             "
           >
             <Info :info="info" v-if="!loading"></Info>
@@ -85,8 +87,10 @@
       <b-container
         class="mt-4"
         :style="
-          'transition: 0.5s;' +
-            (loading ? 'opacity: 0' : 'transition-delay: 1s;')
+          'transition: ' +
+            load +
+            's;' +
+            (loading ? 'opacity: 0' : 'transition-delay: ' + load + 's;')
         "
         fluid
       >
@@ -100,8 +104,10 @@
         v-if="!loading && commits[0] && commits[0].commit"
         class="floater"
         :style="
-          'transition: 0.5s;' +
-            (loading ? 'opacity: 0' : 'transition-delay: 1s;')
+          'transition: ' +
+            load +
+            's;' +
+            (loading ? 'opacity: 0' : 'transition-delay: ' + load + 's;')
         "
       >
         Running <span class="accent">v{{ info.version }}</span
@@ -137,7 +143,11 @@ export default {
       scroll: 0,
       navMode: false,
       block: true,
-      commits: []
+      commits: [],
+      load:
+        window.location.href.split("anims=").length > 1
+          ? window.location.href.split("anims=")[1]
+          : 1
     };
   },
   mounted() {
