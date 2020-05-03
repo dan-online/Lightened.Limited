@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const report = process.argv.find(x => x == "--report");
 module.exports = {
   configureWebpack: {
+    mode: "production",
     plugins: [],
     optimization: {
       splitChunks: {

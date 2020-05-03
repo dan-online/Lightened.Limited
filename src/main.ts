@@ -5,8 +5,9 @@ import router from "./router";
 import * as Sentry from "@sentry/browser";
 import { Vue as VueIntegration } from "@sentry/integrations";
 
-import { LayoutPlugin, NavbarPlugin, ImagePlugin } from "bootstrap-vue";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { LayoutPlugin, ImagePlugin } from "bootstrap-vue";
+
+import "./assets/minified.min.css";
 
 import VueParticles from "vue-particles";
 Vue.use(VueParticles);
@@ -52,7 +53,6 @@ if (process.env.NODE_ENV == "production") {
 }
 
 Vue.use(LayoutPlugin);
-Vue.use(NavbarPlugin);
 Vue.use(ImagePlugin);
 Vue.config.productionTip = false;
 
