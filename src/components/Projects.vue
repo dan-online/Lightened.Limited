@@ -85,6 +85,7 @@ export default {
       data = data.default;
       if (this.projects.version && this.projects.version === data.version) {
         this.$nextTick(() => window.dispatchEvent(new Event("resize")));
+        this.projects = this.projects.projects;
         return;
       }
       if (process.env.NODE_ENV === "production")
