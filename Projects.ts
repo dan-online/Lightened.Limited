@@ -49,5 +49,5 @@ export default {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a mauris pretium, sodales lorem ac, malesuada augue. Vestibulum aliquet molestie ante, quis feugiat nibh congue id. Sed luctus turpis lacinia leo auctor, vitae aliquam turpis feugiat. Cras viverra finibus orci, ac porttitor ligula efficitur et."
     }
   ],
-  version: "1.0.1"
+  version: "1.0.2"
 };
