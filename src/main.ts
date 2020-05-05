@@ -7,7 +7,7 @@ import { Vue as VueIntegration } from "@sentry/integrations";
 
 import { LayoutPlugin, ImagePlugin } from "bootstrap-vue";
 
-import "./assets/minified.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import VueParticles from "vue-particles";
 Vue.use(VueParticles);
