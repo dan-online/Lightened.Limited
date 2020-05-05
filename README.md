@@ -1,4 +1,4 @@
-# lightened.limited
+# [lightened.limited](https://lightened.limited)
 
 ## Project setup
 ```
