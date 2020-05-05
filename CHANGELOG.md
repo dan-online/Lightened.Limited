@@ -1,5 +1,7 @@
 
 
+- [[abe8a65](https://github.com/dan-online/Lightened.Limited/commit/abe8a65887ddf7d4b45ed171cc720a96c259bf9e)] - 1.0.2 - ([Dan](Dan))
+
 - [[64c585a](https://github.com/dan-online/Lightened.Limited/commit/64c585a0b21b2f6c4a10979f34f1ba6dffaed0b6)] - placekitten - ([Dan](Dan))
 
 - [[5454383](https://github.com/dan-online/Lightened.Limited/commit/54543837d187089e8abae03a1466aed9e74e3168)] - fix - ([Dan](Dan))
