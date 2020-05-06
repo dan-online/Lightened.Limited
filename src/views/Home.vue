@@ -84,6 +84,7 @@
           </b-col>
         </b-row>
       </b-container>
+      <hr class="lightened">
       <b-container
         class="mt-4"
         :style="

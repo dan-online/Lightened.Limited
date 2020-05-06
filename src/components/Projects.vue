@@ -1,5 +1,11 @@
 <template>
   <b-container fluid>
+    <b-row>
+      <b-col md="12" class="text-center">
+        <h1 class="title">Projects</h1>
+        <p>These are projects I've worked on and made during my career</p>
+      </b-col>
+    </b-row>
     <carousel-3d
       :display="3"
       :space="1200"

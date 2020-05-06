@@ -438,6 +438,15 @@ button:focus,
 button:hover {
   opacity: 0.7;
 }
+.title {
+  color: var(--lightened-first)
+}
+hr.lightened {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid var(--lightened-first);
+}
 button.lightened {
   border: var(--lightened-first) 2px solid;
   border-radius: 0.2rem;
