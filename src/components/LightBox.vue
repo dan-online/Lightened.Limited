@@ -12,6 +12,7 @@
       <b-row class="no-gutters">
         <b-col md="12">
           <b-img-lazy
+          class="img-fluid"
             :src="project.image"
             :alt="'LightenedLimited ' + project.name"
           ></b-img-lazy>

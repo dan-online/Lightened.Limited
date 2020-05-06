@@ -19,7 +19,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faCodeBranch,
   faEnvelope,
-  faTimes
+  faTimes,
+  faBars
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -37,7 +38,8 @@ library.add(
   faPatreon,
   faDiscord,
   faEnvelope,
-  faTimes
+  faTimes,
+  faBars
 );
 Vue.component("fa", FontAwesomeIcon);
 
