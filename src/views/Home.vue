@@ -101,6 +101,13 @@
           </b-col>
         </b-row>
       </b-container>
+      <b-container>
+        <b-row>
+          <b-col>
+            <Experience></Experience>
+          </b-col>
+        </b-row>
+      </b-container>
       <div
         v-if="!loading && commits[0] && commits[0].commit"
         class="floater"
@@ -125,6 +132,7 @@
         }}</span>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -133,6 +141,7 @@ const Projects = () => import("@/components/Projects.vue");
 const Info = () => import("@/components/Info.vue");
 const Basic = () => import("../../LightenedLimited");
 const Navbar = () => import("@/components/Navbar");
+const Experience = () => import("@/components/Experience"); 
 export default {
   name: "Home",
   data() {
@@ -196,7 +205,8 @@ export default {
   components: {
     Projects,
     Info,
-    Navbar
+    Navbar,
+    Experience
   }
 };
 </script>

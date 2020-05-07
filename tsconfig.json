@@ -23,7 +23,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "src/store/index.od"
+    "src/store/index.od", "Experiences.ts"
   ],
   "exclude": ["node_modules"]
 }
