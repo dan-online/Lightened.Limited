@@ -19,9 +19,14 @@
                 :w="tile.cords.w"
                 :h="tile.cords.h"
                 :i="tile.cords.i"
+              
             >
                 <metro-tile
-                    :faceStyle="{'background-color': 'blue'}"
+                    :frontStyle="{'background-color': 'blue'}"
+                    :backStyle="{'background-color': 'red'}"
+                    :rotateX="tile.rotateX"
+                    @mouseover.native="tileOver(tile)"
+                    @mouseleave.native="resetTile(tile)"
                     >
                     <div slot="front">
                         front
@@ -75,6 +80,14 @@ export default {
         GridLayout: VueGridLayout.GridLayout,
         GridItem: VueGridLayout.GridItem,
         MetroTile 
+    },
+    methods: {
+        tileOver(tile) {
+            tile.rotateX = 90
+        },
+        resetTile(tile) {
+            tile.rotateX = 0
+        }
     }
 }
 </script>

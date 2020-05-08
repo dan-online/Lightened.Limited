@@ -3,7 +3,8 @@ export default {
     tiles: [{
         size: "large", 
         id: "test", 
-        cords: {"x":0,"y":0,"w":2,"h":2,"i":"0"}
+		cords: {"x":0,"y":0,"w":2,"h":2,"i":"0"},
+		rotateX: 0
     }],
     layout: [
 	    {"x":0,"y":0,"w":2,"h":2,"i":"0"},
