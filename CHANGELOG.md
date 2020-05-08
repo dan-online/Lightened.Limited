@@ -1,4 +1,7 @@
 
+# 2020-05-08
+- [[037e10b](https://github.com/dan-online/Lightened.Limited/commit/037e10b6048594b10291762bb5215f653d3bcf9a)] - Rotating on hover for vue-metro - ([LightenedLimited](LightenedLimited))
+
 # 2020-05-07
 - [[95b53b8](https://github.com/dan-online/Lightened.Limited/commit/95b53b8bbdf8b8fa63c4366e2437afd79f2389c3)] - Tile reconfiguration, and data import into Experiences.vue - ([LightenedLimited](LightenedLimited))
 
