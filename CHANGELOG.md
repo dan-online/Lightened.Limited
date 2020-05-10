@@ -1,4 +1,16 @@
 
+# 2020-05-10
+- [[bc05500](https://github.com/dan-online/Lightened.Limited/commit/bc055006012e2b3e48bc606d32a967afd6b5a1ee)] - navbar and experiences in - ([DanCodes](DanCodes))
+
+- [[023e93e](https://github.com/dan-online/Lightened.Limited/commit/023e93ec0eea9dbfd9db15d00d3c50c3120943d2)] - navbar and experiences in - ([DanCodes](DanCodes))
+
+- [[8716e60](https://github.com/dan-online/Lightened.Limited/commit/8716e601ac1a8fe9de907e7f2dfb219f6bb5d2ae)] - navbar and experiences in - ([DanCodes](DanCodes))
+
+- [[bb5fc52](https://github.com/dan-online/Lightened.Limited/commit/bb5fc5256e2939e0e8057cd5930fcd83ebdbce5e)] - navbar and experiences in - ([DanCodes](DanCodes))
+
+- [[04b85b4](https://github.com/dan-online/Lightened.Limited/commit/04b85b4185600c34d9a9bd2dc5743f5db966fb80)] - navbar and experiences in - ([DanCodes](DanCodes))
+
+- [[19bc38a](https://github.com/dan-online/Lightened.Limited/commit/19bc38ac70ce4a74917007ca8cab827423817b6c)] - navbar and experiences in - ([DanCodes](DanCodes))
 
 - [[e7ebd76](https://github.com/dan-online/Lightened.Limited/commit/e7ebd761304e028f92d4f015755fc4365fcd46e9)] - Co-authored-by: DanCodes <dan@dancodes.online> - ([LightenedLimited](LightenedLimited))
 
@@ -10,13 +22,13 @@
 
 - [[0761914](https://github.com/dan-online/Lightened.Limited/commit/0761914aa83f21694c5ade66399485a74a5bd736)] - Dynamic tile adjustment to window size - ([LightenedLimited](LightenedLimited))
 
-
+# 2020-05-08
 - [[037e10b](https://github.com/dan-online/Lightened.Limited/commit/037e10b6048594b10291762bb5215f653d3bcf9a)] - Rotating on hover for vue-metro - ([LightenedLimited](LightenedLimited))
 
-
+# 2020-05-07
 - [[95b53b8](https://github.com/dan-online/Lightened.Limited/commit/95b53b8bbdf8b8fa63c4366e2437afd79f2389c3)] - Tile reconfiguration, and data import into Experiences.vue - ([LightenedLimited](LightenedLimited))
 
-
+# 2020-05-06
 - [[2ce622c](https://github.com/dan-online/Lightened.Limited/commit/2ce622cb04620f1e21af8e25c593bd3eb77d2bfc)] - Merge pull request #7 from dan-online/changemd  Merge updated Changelog - ([DanCodes](DanCodes))
 
 - [[bf58197](https://github.com/dan-online/Lightened.Limited/commit/bf58197414cb850e639674d9919f25d12add2633)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
@@ -31,7 +43,7 @@
 
 - [[cc4b87b](https://github.com/dan-online/Lightened.Limited/commit/cc4b87b366535f6ebbeef13d547180615f217fc1)] - diff cats - ([Dan](Dan))
 
-
+# 2020-05-05
 - [[8449958](https://github.com/dan-online/Lightened.Limited/commit/8449958ce5e485e71849fe49a89258c1dbc6a9d4)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
 - [[abe8a65](https://github.com/dan-online/Lightened.Limited/commit/abe8a65887ddf7d4b45ed171cc720a96c259bf9e)] - 1.0.2 - ([Dan](Dan))
@@ -52,17 +64,17 @@
 
 - [[e8b9c91](https://github.com/dan-online/Lightened.Limited/commit/e8b9c915aee57975c99d974eabae45e46f9ef5d1)] - Update README.md - ([DanCodes](DanCodes))
 
-
+# 2020-05-04
 - [[9693081](https://github.com/dan-online/Lightened.Limited/commit/969308182032ec53b3dea9e394481f78cf6f62a1)] - netlify plugin - ([Dan](Dan))
 
-
+# 2020-05-03
 - [[707cc87](https://github.com/dan-online/Lightened.Limited/commit/707cc87fdd8d5194040e81941fb46261e97b1278)] - stripping bootstrap - ([Dan](Dan))
 
 - [[263ba2d](https://github.com/dan-online/Lightened.Limited/commit/263ba2d976d6b59243edb1d97f1ca4f505dae182)] - anims - ([Dan](Dan))
 
 - [[9ffbbf4](https://github.com/dan-online/Lightened.Limited/commit/9ffbbf400bb7d93a808c51d5fc62c22991dc4fb0)] - obj projects fix - ([Dan](Dan))
 
-
+# 2020-05-02
 - [[9f49b2b](https://github.com/dan-online/Lightened.Limited/commit/9f49b2b400554b25e80a65b82c06c89d1f78ddc4)] - fix env - ([Dan](Dan))
 
 - [[6cb20a7](https://github.com/dan-online/Lightened.Limited/commit/6cb20a780920c132b428db00c70487936ee73813)] - fix msg - ([Dan](Dan))
@@ -73,7 +85,7 @@
 
 - [[e410df0](https://github.com/dan-online/Lightened.Limited/commit/e410df08193f47cfa2e9e9a6ab87bddf9c3711c9)] - navba - ([Dan](Dan))
 
-
+# 2020-05-01
 - [[749b2fd](https://github.com/dan-online/Lightened.Limited/commit/749b2fdf46154891f7b4306be879aaaf5b14cf62)] - fix height - ([Dan](Dan))
 
 - [[9c3de86](https://github.com/dan-online/Lightened.Limited/commit/9c3de86b3ec2dae81e2217704e31822e595d3057)] - fix nav - ([Dan](Dan))
@@ -118,7 +130,7 @@
 
 - [[4ba8865](https://github.com/dan-online/Lightened.Limited/commit/4ba8865965920197c973aca57c7951766a07a05b)] - working slider - ([Dan](Dan))
 
-
+# 2020-04-30
 - [[7cdf332](https://github.com/dan-online/Lightened.Limited/commit/7cdf332d3fb700d47f0e0cd2afb5c292b651e391)] - Loading  Co-authored-by: LightenedLimited <macnguyenanh@gmail.com> - ([Dan](Dan))
 
 - [[460b088](https://github.com/dan-online/Lightened.Limited/commit/460b0887522fda43438f311d1d556a35eab1b192)] - Merge branch 'master' of https://github.com/dan-online/Lightened.Limited - ([Dan](Dan))
@@ -127,7 +139,7 @@
 
 - [[733aff7](https://github.com/dan-online/Lightened.Limited/commit/733aff71fb8a2bd17484cc91bb296262d97877a2)] - Changing some 3d slides - ([LightenedLimited](LightenedLimited))
 
-
+# 2020-04-29
 - [[4563569](https://github.com/dan-online/Lightened.Limited/commit/4563569b9475c98061add7d789573132d49559d0)] - start of nav and fix projs - ([Dan](Dan))
 
 - [[8190ee3](https://github.com/dan-online/Lightened.Limited/commit/8190ee31d5b57e15aa49cec05cca2aeadc90b69b)] - Merge branch 'master' of https://github.com/dan-online/Lightened.Limited - ([Dan](Dan))
@@ -158,7 +170,7 @@
 
 - [[3e29d28](https://github.com/dan-online/Lightened.Limited/commit/3e29d28c4917ceee99e3b310389ac940cbcad7c1)] - Merge pull request #2 from dan-online/imgbot  [ImgBot] Optimize images - ([DanCodes](DanCodes))
 
-
+# 2020-04-28
 - [[08e9b21](https://github.com/dan-online/Lightened.Limited/commit/08e9b212f6302ecedeea6ee275d6e3f2f486fbff)] - [ImgBot] Optimize images  *Total -- 260.73kb -> 239.40kb (8.18%)  /public/icon.png -- 7.88kb -> 4.90kb (37.87%) /public/iconx4.png -- 216.07kb -> 199.04kb (7.89%) /public/logo.png -- 36.78kb -> 35.46kb (3.56%)  Signed-off-by: ImgBotApp <ImgBotHelp@gmail.com> - ([ImgBotApp](ImgBotApp))
 
 - [[d1d3546](https://github.com/dan-online/Lightened.Limited/commit/d1d3546a09f66ec4902d1c8a89b7daeee6f31fbe)] - High res icon and beginning of projects carousel - ([LightenedLimited](LightenedLimited))
@@ -167,12 +179,12 @@
 
 - [[670918c](https://github.com/dan-online/Lightened.Limited/commit/670918c669d1960e978ab607a77967316678cd8d)] - icons - ([Dan](Dan))
 
-
+# 2020-04-27
 - [[02d3bd5](https://github.com/dan-online/Lightened.Limited/commit/02d3bd59884fa0ec12eb2e7362d7097400613c47)] - uneeded code - ([Dan](Dan))
 
 - [[64569c7](https://github.com/dan-online/Lightened.Limited/commit/64569c7b1c58513c45143d7f71652aeee242cba6)] - Loading  Co-authored-by: LightenedLimited <macnguyenanh@gmail.com> - ([Dan](Dan))
 
-
+# 2020-04-26
 - [[1c379a1](https://github.com/dan-online/Lightened.Limited/commit/1c379a145c303a5478b50dad83047455dd91be7e)] - WoRk  Co-authored-by: LightenedLimited <macnguyenanh@gmail.com> - ([Dan](Dan))
 
 - [[947a32b](https://github.com/dan-online/Lightened.Limited/commit/947a32b191e2d996b937e7d8bff23fd767d04062)] - Yay! - ([Dan](Dan))
