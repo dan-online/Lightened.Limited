@@ -5,6 +5,7 @@
   "sideEffects": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "serve-https": "yarn serve --https",
     "build": "curl https://api.github.com/repos/dan-online/Lightened.Limited/commits > src/assets/repoInfo.json; VUE_APP_BUILD_ID=`node -e 'console.log(process.env.COMMIT_REF || process.env.BUILD_ID)'` vue-cli-service build;",
     "lint": "vue-cli-service lint",
     "report": "vue-cli-service build --report"

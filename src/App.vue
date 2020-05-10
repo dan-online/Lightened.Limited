@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view @scroll="scroll" />
+    <router-view @bg="bg" @scroll="scroll" />
   </div>
 </template>
 <style>
@@ -427,6 +427,17 @@ body {
   background-color: var(--lightened-black) !important;
   font-family: "Manrope", sans-serif !important;
   color: #fff !important;
+  transition: background 1s ease-in-out;
+}
+html.green,
+html.green body {
+  background-color: #71dea2 !important;
+}
+html.green .accent,
+html.green a,
+html.green .title {
+  color: black !important;
+  text-decoration: underline;
 }
 button,
 button:focus {
@@ -439,13 +450,13 @@ button:hover {
   opacity: 0.7;
 }
 .title {
-  color: var(--lightened-first)
+  color: var(--lightened-first);
 }
 hr.lightened {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px solid var(--lightened-first);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid var(--lightened-first);
 }
 button.lightened {
   border: var(--lightened-first) 2px solid;
@@ -480,12 +491,20 @@ export default {
   },
   methods: {
     scroll(ref) {
-      let $ref = this.$children.find(x => {
+      let $ref = this.$children.find((x) => {
         return x.$refs[ref];
       });
       $ref = $ref.$el || $ref;
       console.log($ref.scrollIntoView());
-    }
-  }
+    },
+    bg(color) {
+      console.log(color);
+      if (color !== "#000") {
+        document.querySelector("html").classList.add("green");
+      } else {
+        document.querySelector("html").classList.remove("green");
+      }
+    },
+  },
 };
 </script>

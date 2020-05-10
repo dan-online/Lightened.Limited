@@ -19,7 +19,7 @@
     >
     </vue-particles>
     <Navbar
-      @scroll="ref => $emit('scroll', ref)"
+      @scroll="(ref) => $emit('scroll', ref)"
       v-if="!loading && info"
       :info="info"
       :style="
@@ -28,7 +28,7 @@
     ></Navbar>
     <div
       :class="'fixed ' + (!loading ? 'loaded' : '')"
-      v-on:scroll.passive="e => (scroll = e.target.scrollTop)"
+      v-on:scroll.passive="(e) => (scroll = e.target.scrollTop)"
       :style="!loading ? 'overflow-y: scroll;' : 'overflow-y:hidden'"
     >
       <b-container style="height: 100vh">
@@ -84,7 +84,7 @@
           </b-col>
         </b-row>
       </b-container>
-      <hr class="lightened">
+      <hr class="lightened" />
       <b-container
         class="mt-4"
         :style="
@@ -132,7 +132,6 @@
         }}</span>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -141,7 +140,7 @@ const Projects = () => import("@/components/Projects.vue");
 const Info = () => import("@/components/Info.vue");
 const Basic = () => import("../../LightenedLimited");
 const Navbar = () => import("@/components/Navbar");
-const Experience = () => import("@/components/Experience"); 
+const Experience = () => import("@/components/Experience");
 export default {
   name: "Home",
   data() {
@@ -157,7 +156,7 @@ export default {
       load:
         window.location.href.split("anims=").length > 1
           ? window.location.href.split("anims=")[1]
-          : 1
+          : 1,
     };
   },
   mounted() {
@@ -166,7 +165,7 @@ export default {
       if (this.info.name) {
         this.loading = false;
       }
-      Basic().then(data => {
+      Basic().then((data) => {
         data = data.default;
         if (this.info.version && this.info.version === data.version) return;
         if (process.env.NODE_ENV === "production")
@@ -191,23 +190,30 @@ export default {
       );
       const block = Boolean(
         Math.round(
-          (multiples.reverse().find(x => this.scroll + vh >= x - 350) / vh) % 2
+          (multiples.reverse().find((x) => this.scroll + vh >= x - 350) / vh) %
+            2
         )
       );
       if (block == this.block) return;
       else this.block = block;
-      window.pJSDom[0].pJS.particles.array.forEach(p => {
-        p.color.value = block ? "#71dea2" : "#fff";
+      this.$emit("bg", block ? "#000" : "#71dea2");
+      window.pJSDom[0].pJS.particles.array.forEach((p, i) => {
+        window.pJSDom[0].pJS.particles.array[i].color.value = block
+          ? "#71dea2"
+          : "#fff";
+        const target = block
+          ? { r: 113, g: 222, b: 162 }
+          : { r: 255, g: 255, b: 255 };
+        window.pJSDom[0].pJS.particles.array[i].color.rgb = target;
       });
-      console.log("update");
-    }
+    },
   },
   components: {
     Projects,
     Info,
     Navbar,
-    Experience
-  }
+    Experience,
+  },
 };
 </script>
 <style>
