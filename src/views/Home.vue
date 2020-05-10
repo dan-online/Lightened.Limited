@@ -1,5 +1,5 @@
 <template>
-  <div ref="home">
+  <div ref="home" icon="house">
     <vue-particles
       color="#71dea2"
       :particleOpacity="1"
@@ -19,20 +19,24 @@
     >
     </vue-particles>
     <Navbar
-      @scroll="ref => $emit('scroll', ref)"
+      @scroll="(ref) => $emit('scroll', ref)"
       v-if="!loading && info"
       :info="info"
       :style="
-        'transition: 0.5s;' + (navMode ? 'opacity: 1' : 'opacity:0;height:0px')
+        'transition: 0.5s;' + (!loading ? 'opacity: 1' : 'opacity:0;height:0px')
       "
     ></Navbar>
     <div
       :class="'fixed ' + (!loading ? 'loaded' : '')"
-      v-on:scroll.passive="e => (scroll = e.target.scrollTop)"
-      :style="!loading ? 'overflow-y: scroll;' : 'overflow-y:hidden'"
+      v-on:scroll.passive="(e) => (scroll = e.target.scrollTop)"
+      :style="
+        !loading
+          ? 'overflow-y: scroll; scroll-behavior:smooth;'
+          : 'overflow-y:hidden'
+      "
     >
       <b-container style="height: 100vh">
-        <b-row style="padding-top:25%;">
+        <b-row style="padding-top:22%;">
           <b-col
             :style="'transition: ' + load + 's'"
             :md="loading ? 12 : 3"
@@ -93,18 +97,25 @@
             's;' +
             (loading ? 'opacity: 0' : 'transition-delay: ' + load + 's;')
         "
-        fluid
       >
         <b-row>
           <b-col md="12">
-            <Projects ref="projects" v-if="!loading"></Projects>
+            <Projects ref="projects" icon="list" v-if="!loading"></Projects>
           </b-col>
         </b-row>
       </b-container>
-      <b-container fluid style="padding: 0 !important;">
-        <b-row no-gutters>
+      <b-container
+        :style="
+          'height:100vh; transition: ' +
+            load +
+            's;' +
+            (loading ? 'opacity: 0' : 'transition-delay: ' + load + 's;')
+        "
+        class="mt-4"
+      >
+        <b-row>
           <b-col>
-            <Experience></Experience>
+            <Experience ref="experience" v-if="!loading"></Experience>
           </b-col>
         </b-row>
       </b-container>
@@ -150,7 +161,6 @@ export default {
         ? JSON.parse(localStorage.LightenedLimited)
         : {},
       scroll: 0,
-      navMode: false,
       block: true,
       commits: [],
       load:
@@ -165,7 +175,7 @@ export default {
       if (this.info.name) {
         this.loading = false;
       }
-      Basic().then(data => {
+      Basic().then((data) => {
         data = data.default;
         if (this.info.version && this.info.version === data.version) return;
         if (process.env.NODE_ENV === "production")
@@ -183,14 +193,14 @@ export default {
   },
   watch: {
     scroll() {
-      this.navMode = this.scroll >= 275;
       const vh = window.innerHeight;
       const multiples = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
         (x, ind) => vh * ind + 1
       );
       const block = Boolean(
         Math.round(
-          (multiples.reverse().find(x => this.scroll + vh >= x - 350) / vh) % 2
+          (multiples.reverse().find((x) => this.scroll + vh >= x - 350) / vh) %
+            2
         )
       );
       if (block == this.block) return;
