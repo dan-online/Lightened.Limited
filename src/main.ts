@@ -15,10 +15,6 @@ Vue.use(VueParticles);
 import VueLazyLoad from "vue-lazyload";
 Vue.use(VueLazyLoad);
 
-import VueWindowSize from 'vue-window-size';
- 
-Vue.use(VueWindowSize);
-
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faCodeBranch,

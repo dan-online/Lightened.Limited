@@ -2,13 +2,13 @@
     <b-container fluid style="padding: 0 !important;">
         <grid-layout
             :layout="(experiences.version ? experiences.layout : [])"
-            :col-num="12"
-            :row-height="30"
+            :col-num="3"
+            :row-height="height/3"
             :is-draggable="true"
             :is-resizable="true"
             :is-mirrored="false"
             :vertical-compact="true"
-            :margin="[10, 10]"
+            :margin="[0, 0]"
             :use-css-transforms="true"
         >
             <grid-item 
@@ -21,13 +21,14 @@
                 :i="tile.cords.i"
             >
                 <metro-tile
-                    :frontStyle="{'background-color': 'blue'}"
+                    :frontStyle="tile.frontStyle"
                     :backStyle="{'background-color': 'red'}"
                     :rotateX="tile.rotateX"
                     @mouseover.native="tileOver(tile)"
                     @mouseleave.native="resetTile(tile)"
-                    :height="windowHeight/4"
-                    :width="windowWidth/4"
+                    :height="height/3"
+                    :width="width/3"
+                    :key="tile.id"
                     >
                     <div slot="front">
                         front
@@ -59,7 +60,10 @@ export default {
         return {
             experiences: localStorage.LightenedExperiences
             ? JSON.parse(localStorage.LightenedExperiences)
-            : {}
+            : {},
+            window: window,
+            width: window.innerWidth,
+            height: window.innerHeight
         }
     },
     mounted() {
@@ -89,6 +93,12 @@ export default {
         resetTile(tile) {
             tile.rotateX = 0
         }
+    },
+    created() {
+        window.addEventListener("resize", () => {
+            this.width = window.innerWidth; 
+            this.height = window.innerHeight; 
+        }); 
     }
 }
 </script>
