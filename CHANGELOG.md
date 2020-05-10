@@ -1,4 +1,7 @@
 
+# 2020-05-10
+- [[0761914](https://github.com/dan-online/Lightened.Limited/commit/0761914aa83f21694c5ade66399485a74a5bd736)] - Dynamic tile adjustment to window size - ([LightenedLimited](LightenedLimited))
+
 # 2020-05-08
 - [[037e10b](https://github.com/dan-online/Lightened.Limited/commit/037e10b6048594b10291762bb5215f653d3bcf9a)] - Rotating on hover for vue-metro - ([LightenedLimited](LightenedLimited))
 
