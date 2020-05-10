@@ -24,21 +24,21 @@ const Socials = () => import("../components/Socials");
 export default {
   name: "Info",
   props: {
-    info: {}
+    info: {},
   },
   components: {
-    Socials
+    Socials,
   },
   data() {
     return {
-      loading: true
+      loading: true,
     };
   },
   mounted() {
     this.$nextTick(() => {
       this.loading = false;
     });
-  }
+  },
 };
 </script>
 <style scoped>
@@ -55,8 +55,5 @@ export default {
 
 *:not(.accent) {
   /* transition-delay: 2s !important; */
-}
-.accent {
-  transition-delay: 0s !important;
 }
 </style>
