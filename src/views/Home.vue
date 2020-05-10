@@ -19,7 +19,7 @@
     >
     </vue-particles>
     <Navbar
-      @scroll="(ref) => $emit('scroll', ref)"
+      @scroll="ref => $emit('scroll', ref)"
       v-if="!loading && info"
       :info="info"
       :style="
@@ -28,7 +28,7 @@
     ></Navbar>
     <div
       :class="'fixed ' + (!loading ? 'loaded' : '')"
-      v-on:scroll.passive="(e) => (scroll = e.target.scrollTop)"
+      v-on:scroll.passive="e => (scroll = e.target.scrollTop)"
       :style="!loading ? 'overflow-y: scroll;' : 'overflow-y:hidden'"
     >
       <b-container style="height: 100vh">
@@ -165,7 +165,7 @@ export default {
       if (this.info.name) {
         this.loading = false;
       }
-      Basic().then((data) => {
+      Basic().then(data => {
         data = data.default;
         if (this.info.version && this.info.version === data.version) return;
         if (process.env.NODE_ENV === "production")
@@ -190,8 +190,7 @@ export default {
       );
       const block = Boolean(
         Math.round(
-          (multiples.reverse().find((x) => this.scroll + vh >= x - 350) / vh) %
-            2
+          (multiples.reverse().find(x => this.scroll + vh >= x - 350) / vh) % 2
         )
       );
       if (block == this.block) return;

@@ -20,14 +20,14 @@ import {
   faCodeBranch,
   faEnvelope,
   faTimes,
-  faBars
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faTwitter,
   faGithub,
   faPatreon,
-  faDiscord
+  faDiscord,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 library.add(
@@ -49,7 +49,7 @@ if (process.env.NODE_ENV == "production") {
     dsn:
       "https://adbc7f5db01042d8857fe4282de69d17@o193439.ingest.sentry.io/5220675",
     release,
-    integrations: [new VueIntegration({ Vue, attachProps: true })]
+    integrations: [new VueIntegration({ Vue, attachProps: true })],
   });
   console.log("sentry init release " + release);
 }
@@ -60,6 +60,6 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: h => h(App)
+  render: h => h(App),
 }).$mount("#app");
 console.log("vue init");
