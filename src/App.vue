@@ -491,11 +491,14 @@ export default {
   },
   methods: {
     scroll(ref) {
+      console.log(ref);
       let $ref = this.$children.find((x) => {
         return x.$refs[ref];
-      });
+      }).$refs[ref];
       $ref = $ref.$el || $ref;
-      console.log($ref.scrollIntoView());
+      console.log($ref);
+      document.querySelector(".fixed").scrollTop =
+        $ref.offsetParent.offsetTop - 120;
     },
     bg(color) {
       console.log(color);
