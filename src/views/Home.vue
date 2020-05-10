@@ -101,8 +101,8 @@
           </b-col>
         </b-row>
       </b-container>
-      <b-container>
-        <b-row>
+      <b-container fluid style="padding: 0 !important;">
+        <b-row no-gutters>
           <b-col>
             <Experience></Experience>
           </b-col>

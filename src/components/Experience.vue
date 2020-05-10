@@ -1,5 +1,5 @@
 <template>
-    <b-container>
+    <b-container fluid style="padding: 0 !important;">
         <grid-layout
             :layout="(experiences.version ? experiences.layout : [])"
             :col-num="12"
@@ -19,7 +19,6 @@
                 :w="tile.cords.w"
                 :h="tile.cords.h"
                 :i="tile.cords.i"
-              
             >
                 <metro-tile
                     :frontStyle="{'background-color': 'blue'}"
@@ -27,6 +26,8 @@
                     :rotateX="tile.rotateX"
                     @mouseover.native="tileOver(tile)"
                     @mouseleave.native="resetTile(tile)"
+                    :height="windowHeight/4"
+                    :width="windowWidth/4"
                     >
                     <div slot="front">
                         front
